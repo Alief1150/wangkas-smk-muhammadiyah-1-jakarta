@@ -92,6 +92,13 @@
               </x-sidebar.sidebar-link>
             </x-sidebar.sidebar-item>
 
+            {{-- MENU BARU: KATEGORI PROGRAM --}}
+            <x-sidebar.sidebar-item :active="request()->routeIs('payment-categories.index')">
+              <x-sidebar.sidebar-link :href="route('payment-categories.index')" icon="bi bi-tags-fill" wire:navigate>
+                Kategori Program
+              </x-sidebar.sidebar-link>
+            </x-sidebar.sidebar-item>
+
             <x-sidebar.sidebar-item class="has-sub" :active="request()->routeIs('cash-transactions.*')">
               <x-sidebar.sidebar-link href="#" icon="bi bi-cash-stack">
                 SPP
@@ -169,7 +176,6 @@
   <script src="{{ asset('compiled/js/app.js') }}"></script>
   <script src="{{ asset('extensions/sweetalert2/sweetalert2.min.js') }}"></script>
 
-  <!-- Need: Apexcharts -->
   <script src="{{ asset('extensions/apexcharts/apexcharts.min.js') }}"></script>
 
   <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
@@ -198,7 +204,7 @@
       });
 
       document.addEventListener("close-modal", (e) => {
-        const modalIds = ["createModal", "editModal", "deleteModal"];
+        const modalIds = ["createModal", "editModal", "deleteModal", "categoryModal"]; // Saya tambahkan categoryModal
         modalIds.forEach((id) => {
           const modal = document.getElementById(id);
           if (modal) {

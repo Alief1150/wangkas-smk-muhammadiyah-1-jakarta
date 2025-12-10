@@ -14,22 +14,12 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label fw-bold">Pilih Pelajar</label>
-                                    
-                                    {{-- BAGIAN INI KUNCINYA --}}
-                                    <div wire:ignore 
-                                         x-data 
-                                         x-init="
+                                    <div wire:ignore x-data x-init="
                                             new TomSelect($refs.select_pelajar, {
                                                 create: false,
-                                                maxItems: 1, // Single Select
-                                                maxOptions: null, // <-- INI AGAR SEMUA SISWA MUNCUL (UNLIMITED)
-                                                sortField: {
-                                                    field: 'text',
-                                                    direction: 'asc'
-                                                },
-                                                placeholder: 'Ketik Nama Siswa...',
-                                                
-                                                // Saat dipilih, panggil fungsi PHP
+                                                maxItems: 1,
+                                                maxOptions: null,
+                                                placeholder: 'Cari Nama Siswa...',
                                                 onChange: function(value) {
                                                     $wire.cekHarga(value);
                                                 }
@@ -38,9 +28,7 @@
                                         <select x-ref="select_pelajar" class="form-select" autocomplete="off">
                                             <option value="">-- Cari Siswa --</option>
                                             @foreach ($students as $student)
-                                                <option value="{{ $student->id }}">
-                                                    {{ $student->name }} ({{ $student->identification_number }})
-                                                </option>
+                                                <option value="{{ $student->id }}">{{ $student->name }} ({{ $student->identification_number }})</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -50,13 +38,29 @@
 
                             {{-- KOLOM KANAN --}}
                             <div class="col-md-6">
+                                {{-- 1. PILIH KATEGORI PROGRAM --}}
                                 <div class="mb-3">
-                                    <label class="form-label fw-bold text-primary">Tagihan Otomatis</label>
+                                    <label class="form-label fw-bold">Kategori Program</label>
+                                    <select class="form-select" wire:model.live="selectedProgramId">
+                                        <option value="">-- Standar (Tanpa Tambahan) --</option>
+                                        @foreach ($programs as $program)
+                                            <option value="{{ $program->id }}">
+                                                {{ $program->name }} (+ Rp {{ number_format($program->additional_fee, 0, ',', '.') }})
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                {{-- 2. TOTAL TAGIHAN --}}
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold text-primary">Total Tagihan</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-primary text-white">Rp</span>
                                         <input type="number" class="form-control fw-bold" wire:model.live="form.amount" readonly>
                                     </div>
-                                    <div class="form-text text-muted small">Harga muncul setelah nama dipilih.</div>
+                                    <div class="form-text text-muted small">
+                                        Base: Rp {{ number_format($baseTuitionFee, 0, ',', '.') }} | Plus: Rp {{ number_format($additionalFee, 0, ',', '.') }}
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
@@ -65,13 +69,12 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label fw-bold">Status / Catatan</label>
-                                    <textarea class="form-control fw-bold text-success" wire:model="form.note" rows="3" readonly></textarea>
+                                    <label class="form-label fw-bold">Catatan</label>
+                                    <textarea class="form-control fw-bold text-success" wire:model="form.note" rows="2" readonly></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
