@@ -66,31 +66,42 @@
                                         </span>
                                     </td>
 
+                                    {{-- BAGIAN AKSI YANG DIEDIT --}}
                                     <td>
                                         <div class="btn-group gap-1">
                                             
-                                            {{-- 1. DOWNLOAD BUKTI --}}
-                                            @if($transaction->proof_of_payment)
+                                            {{-- 1. TOMBOL DOWNLOAD BUKTI --}}
+                                            @if($transaction->proof_of_payment) 
+                                                {{-- KASUS A: SUDAH ADA BUKTI --}}
+                                                {{-- Atribut 'download' memaksa file diunduh, bukan dibuka --}}
                                                 <a href="{{ asset('storage/' . $transaction->proof_of_payment) }}" 
-                                                   download="Bukti_Bayar_{{ str_replace(' ', '_', $transaction->student->name) }}"
-                                                   class="btn btn-sm btn-info rounded text-white"
-                                                   title="Unduh Bukti Pembayaran">
+                                                   download="Bukti_Bayar_{{ str_replace(' ', '_', $transaction->student->name) }}_{{ $transaction->id }}" 
+                                                   class="btn btn-sm btn-info text-white rounded" 
+                                                   title="Download Bukti (JPG/PNG)">
                                                     <i class="bi bi-download"></i>
                                                 </a>
+                                            @else
+                                                {{-- KASUS B: BELUM ADA BUKTI --}}
+                                                {{-- Muncul tombol Upload (membuka menu Edit) --}}
+                                                <button wire:click="$dispatch('edit-transaction', { id: {{ $transaction->id }} })" 
+                                                        class="btn btn-sm btn-secondary rounded" 
+                                                        title="Upload Bukti Pembayaran">
+                                                    <i class="bi bi-upload"></i>
+                                                </button>
                                             @endif
 
                                             {{-- 2. TOMBOL EDIT --}}
                                             <button wire:click="$dispatch('edit-transaction', { id: {{ $transaction->id }} })" 
-                                                    class="btn btn-sm btn-success rounded"
-                                                    {{-- HAPUS data-bs-toggle DI SINI, BIAR COMPONENT YANG HANDLE --}}
-                                                    >
+                                                    class="btn btn-sm btn-success rounded" 
+                                                    title="Edit Data">
                                                 <i class="bi bi-pencil-square"></i>
                                             </button>
                                             
                                             {{-- 3. TOMBOL DELETE --}}
                                             <button wire:click="$dispatch('delete-transaction', { id: {{ $transaction->id }} })" 
                                                     class="btn btn-sm btn-danger rounded"
-                                                    wire:confirm="Yakin ingin menghapus transaksi ini?">
+                                                    wire:confirm="Yakin ingin menghapus transaksi ini?"
+                                                    title="Hapus Data">
                                                 <i class="bi bi-trash-fill"></i>
                                             </button>
                                         </div>
@@ -114,13 +125,8 @@
         </div>
     </div>
 
-    {{-- MEMUAT MODAL CREATE --}}
+    {{-- MEMUAT MODAL COMPONENTS --}}
     <livewire:cash-transactions.create-cash-transaction />
-    
-    {{-- MEMUAT MODAL EDIT (INI YANG KITA TAMBAHKAN) --}}
-    {{-- Pastikan file resources/views/livewire/cash-transactions/edit-cash-transaction.blade.php SUDAH ADA --}}
     <livewire:cash-transactions.edit-cash-transaction />
-    
-    {{-- MEMUAT MODAL DELETE --}}
     <livewire:cash-transactions.delete-cash-transaction />
 </div>
