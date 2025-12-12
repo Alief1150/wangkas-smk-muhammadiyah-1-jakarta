@@ -1,15 +1,22 @@
 <div>
     {{-- Custom CSS untuk halaman ini --}}
     <style>
+        /* Variabel Warna Tema Al-Muhajirin */
+        :root {
+            --primary-color: #1a5276; /* Biru Tua Al-Muhajirin */
+            --secondary-color: #ffc107; /* Kuning Aksen */
+        }
+        
         .auth-bg {
-            /* --- BAGIAN INI YANG DIUBAH --- */
-            /* Pastikan kamu sudah menyimpan foto sekolah di folder: public/img/gedung-sekolah.jpg */
-            /* Atau ganti asset(...) di bawah dengan link URL gambar langsung */
+            /* --- BAGIAN INI YANG DIUBAH (Latar Belakang & Overlay) --- */
             
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{{ asset('img/smk sandikta profile.jpg') }}");
+            /* Menggunakan warna Biru Tua Al-Muhajirin sebagai overlay */
+            background-image: linear-gradient(rgba(26, 82, 118, 0.7), rgba(26, 82, 118, 0.7)), 
+                              /* Menggunakan gambar SMK Sandikta (diasumsikan diganti nanti) */
+                              url('https://images.unsplash.com/photo-1541339907198-e0875662f976?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
             
-            /* Jika gambarnya dari internet (URL), pakai baris ini (hapus tanda komentarnya): */
-            /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://smk.sandikta.sch.id/wp-content/uploads/2019/07/bg-slider.jpg'); */
+            /* Jika Anda punya URL gambar SMK Al-Muhajirin, ganti URL di atas atau gunakan ini: */
+            /* background-image: linear-gradient(rgba(26, 82, 118, 0.7), rgba(26, 82, 118, 0.7)), url('URL_FOTO_SMK_ALMUHAJIRIN'); */
 
             background-size: cover;
             background-position: center;
@@ -39,7 +46,8 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(to right, #0061f2, #6900f2);
+            /* Garis Aksen menggunakan warna utama Al-Muhajirin */
+            background: var(--primary-color); 
         }
 
         .logo-container img {
@@ -56,12 +64,14 @@
         }
 
         .form-control:focus {
-            box-shadow: 0 0 0 3px rgba(0, 97, 242, 0.15);
-            border-color: #0061f2;
+            /* Warna fokus disesuaikan dengan tema Al-Muhajirin (Biru Tua) */
+            box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.2); 
+            border-color: var(--primary-color);
         }
         
         .btn-primary {
-            background: #0061f2;
+            /* Tombol menggunakan warna Biru Tua Al-Muhajirin */
+            background: var(--primary-color);
             border: none;
             border-radius: 10px;
             padding: 12px;
@@ -70,9 +80,10 @@
         }
 
         .btn-primary:hover {
-            background: #004bbd;
+            /* Efek hover gelap sedikit */
+            background: #113c54; 
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 97, 242, 0.3);
+            box-shadow: 0 5px 15px rgba(26, 82, 118, 0.3);
         }
     </style>
 
@@ -81,21 +92,23 @@
             
             {{-- Logo Section --}}
             <div class="text-center logo-container">
-              {{-- Tombol Kembali --}}
-              <div class="mb-3 text-start">
-                  <a href="{{ route('welcome') }}" class="text-decoration-none text-muted small">
-                      <i class="bi bi-arrow-left"></i> Kembali ke Homepage
-                  </a>
-              </div>
+                {{-- Tombol Kembali --}}
+                <div class="mb-3 text-start">
+                    <a href="{{ route('welcome') }}" class="text-decoration-none text-muted small">
+                        <i class="bi bi-arrow-left"></i> Kembali ke Homepage
+                    </a>
+                </div>
 
 
-                {{-- Logo Sekolah --}}
-                <img src="{{ asset('img/logo-SMK-sandikta-PNG.png') }}" alt="Logo SMK Sandikta">
-                <h4 class="font-weight-bold text-dark mb-1">SMK SANDIKTA</h4>
-                <p class="text-muted small mb-4">Sistem Informasi Akademik</p>
+                {{-- Logo Sekolah (Diubah ke placeholder Al-Muhajirin) --}}
+                {{-- GANTI DENGAN URL LOGO SMK AL-MUHAJIRIN YANG SESUNGGUHNYA --}}
+               
+                
+                <h4 class="font-weight-bold" style="color: var(--primary-color); margin-bottom: 1px;">SMK AL-MUHAJIRIN DEPOK</h4>
+                <p class="text-muted small mb-4"></p>
             </div>
 
-            {{-- Alerts Section --}}
+            {{-- Alerts Section (Tetap menggunakan sintaks Laravel Blade) --}}
             @if (session('error'))
             <div class="alert alert-warning alert-dismissible fade show text-sm" role="alert">
                 <i class="bi bi-exclamation-triangle me-2"></i> {{ session('error') }}
@@ -163,10 +176,10 @@
                 </button>
             </form>
             
-            {{-- Footer Copyright --}}
+            {{-- Footer Copyright (Diubah ke Al-Muhajirin) --}}
             <div class="text-center mt-4">
                 <p class="text-muted small" style="font-size: 0.7rem;">
-                    &copy; {{ date('Y') }} Yayasan Pendidikan Kita<br>SMK Sandikta
+                    &copy; {{ date('Y') }} SMK AL-MUHAJIRIN DEPOK
                 </p>
             </div>
         </div>
