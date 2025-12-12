@@ -73,6 +73,13 @@
             </x-sidebar.sidebar-item>
 
             <li class="sidebar-title"><i class="bi bi-menu-button-wide-fill"></i></li>
+<!-- baru -->
+             <li class="sidebar-item {{ request()->routeIs('tentang-sekolah.*') ? 'active' : '' }}">
+                <a href="{{ route('tentang-sekolah.index') }}" wire:navigate class="sidebar-link">
+                    <i class="bi bi-building"></i>
+                    <span>Tentang Sekolah</span>
+                </a>
+            </li>
 
             <x-sidebar.sidebar-item :active="request()->routeIs('students.index')">
               <x-sidebar.sidebar-link :href="route('students.index')" icon="bi bi-people-fill" wire:navigate>

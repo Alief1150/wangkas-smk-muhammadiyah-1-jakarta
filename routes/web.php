@@ -11,8 +11,10 @@ use App\Livewire\SchoolMajors\SchoolMajorTable;
 use App\Livewire\Students\StudentTable;
 use App\Livewire\UpdateProfile;
 use Illuminate\Support\Facades\Route;
+//baru
 use App\Http\Controllers\InvoiceController;
 use App\Livewire\PaymentCategories\PaymentCategoryIndex;
+use App\Http\Controllers\AboutController;
 
 
 
@@ -33,9 +35,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/pengguna', AdministratorTable::class)->name('administrators.index');
     Route::get('/profil', UpdateProfile::class)->name('update-profiles.index');
     Route::get('/pelajar', StudentTable::class)->name('students.index');
-    
+    //baru
     Route::get('/kas', CashTransactionCurrentWeekTable::class)->name('cash-transactions.index');
     Route::get('/kas/filter', FilterCashTransaction::class)->name('cash-transactions.filter');
     Route::get('/invoice/{id}', [InvoiceController::class, 'show'])->name('invoice');
+    Route::get('/tentang-sekolah', [AboutController::class, 'index'])->name('tentang-sekolah.index');
     
 });

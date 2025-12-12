@@ -194,9 +194,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#program">Program Keahlian</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#kontak">Kontak</a>
-                    </li>
+                   
                     <li class="nav-item ms-3">
                         @if (Route::has('login'))
                             @auth
@@ -263,108 +261,17 @@
         </div>
     </section>
 
-    <section id="galeri" class="py-5 bg-light">
-        <div class="container">
-            <div class="section-title">
-                <h2 style="color: var(--primary-color);">GALERI KEGIATAN</h2>
-            </div>
-            
-            <div class="row justify-content-center g-4">
-                
-                <div class="col-lg-5 col-md-6">
-                    <div class="galeri-card">
-                        <div class="galeri-img-container">
-                            <img src="https://smk-mhj.sch.id/assets/galeri/kegiatan/IMG_Kegiatan_Futsal.jpg" alt="Kegiatan Futsal">
-                        </div>
-                        <div class="galeri-content">
-                            <h4>Kegiatan Futsal</h4>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-5 col-md-6">
-                    <div class="galeri-card">
-                        <div class="galeri-img-container">
-                            <img src="https://smk-mhj.sch.id/assets/galeri/kegiatan/IMG_Kegiatan_PASKIBRA.jpg" alt="Kegiatan PASKIBRA">
-                        </div>
-                        <div class="galeri-content">
-                            <h4>Kegiatan PASKIBRA</h4>
-                        </div>
-                    </div>
-                </div>
+    
 
-            </div>
-        </div>
-    </section>
-
-
-    <section id="program" class="py-5">
-        <div class="container">
-            <div class="section-title">
-                <h2>PROGRAM KEAHLIAN / JURUSAN</h2>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="program-card">
-                        <div class="program-image">
-                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Teknik Jaringan Komputer dan Telekomunikasi">
-                        </div>
-                        <div class="program-content">
-                            <h3>TJKT</h3>
-                            <p class="text-muted">Teknik Jaringan Komputer dan Telekomunikasi</p>
-                            <ul>
-                                <li>Pelajari dasar-dasar jaringan komputer</li>
-                                <li>Konfigurasi dan administrasi server</li>
-                                <li>Keamanan jaringan dan sistem</li>
-                                <li>Karir: Teknisi Jaringan, Administrator Sistem, dll.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="program-card">
-                        <div class="program-image">
-                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Desain Komunikasi Visual">
-                        </div>
-                        <div class="program-content">
-                            <h3>DKV</h3>
-                            <p class="text-muted">Desain Komunikasi Visual</p>
-                            <ul>
-                                <li>Pelajari prinsip desain grafis</li>
-                                <li>Penggunaan software desain profesional</li>
-                                <li>Pembuatan karya desain untuk berbagai media</li>
-                                <li>Karir: Desainer Grafis, UI/UX Designer, dll.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <footer class="text-white py-5 mt-5 text-center" id="kontak" style="background-color: var(--primary-color) !important;">
         <div class="container">
             <div class="row justify-content-center g-4">
-                <div class="col-md-6 col-lg-4 text-center footer-section">
-                    <h3>Kontak Kami</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Jl. Nusantara Raya No.313, Depok Jaya</p>
-                    <p><i class="fas fa-phone"></i> (021) 1234567</p>
-                    <p><i class="fas fa-envelope"></i> info@smkalmuhajirindepok.sch.id</p>
-                </div>
+               
                 
                 <div class="col-md-6 col-lg-4 text-center footer-section">
-                    <h3>Ikuti Kami</h3>
-                    <div class="social-icons mt-3">
-                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-2x"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-twitter fa-2x"></i></a>
-                    </div>
-                </div>
-            </div>
-            <hr class="mt-4 mb-3">
-            <small>&copy; {{ date('Y') }} SMK AL-MUHAJIRIN DEPOK. All Rights Reserved.</small>
-        </div>
-    </footer>
+                  
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
