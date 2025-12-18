@@ -3,20 +3,20 @@
     <style>
         /* Variabel Warna Tema Al-Muhajirin */
         :root {
-            --primary-color: #1a5276; /* Biru Tua Al-Muhajirin */
-            --secondary-color: #ffc107; /* Kuning Aksen */
+            --primary-color: #1B5E20; /* Hijau tua */
+            --secondary-color: #FBC02D; /* Aksen kuning emas */
         }
         
         .auth-bg {
             /* --- BAGIAN INI YANG DIUBAH (Latar Belakang & Overlay) --- */
             
             /* Menggunakan warna Biru Tua Al-Muhajirin sebagai overlay */
-            background-image: linear-gradient(rgba(26, 82, 118, 0.7), rgba(26, 82, 118, 0.7)), 
+            background-image: linear-gradient(rgba(27, 94, 32, 0.75), rgba(27, 94, 32, 0.75)), 
                               /* Menggunakan gambar SMK Sandikta (diasumsikan diganti nanti) */
-                              url('https://images.unsplash.com/photo-1541339907198-e0875662f976?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+                              url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop'); 
             
             /* Jika Anda punya URL gambar SMK Al-Muhajirin, ganti URL di atas atau gunakan ini: */
-            /* background-image: linear-gradient(rgba(26, 82, 118, 0.7), rgba(26, 82, 118, 0.7)), url('URL_FOTO_SMK_ALMUHAJIRIN'); */
+            /* background-image: linear-gradient(rgba(27, 94, 32, 0.75), rgba(27, 94, 32, 0.75)), url('URL_FOTO_SMK_ALMUHAJIRIN'); */
 
             background-size: cover;
             background-position: center;
@@ -65,7 +65,7 @@
 
         .form-control:focus {
             /* Warna fokus disesuaikan dengan tema Al-Muhajirin (Biru Tua) */
-            box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.2); 
+            box-shadow: 0 0 0 3px rgba(27, 94, 32, 0.20); 
             border-color: var(--primary-color);
         }
         
@@ -81,9 +81,9 @@
 
         .btn-primary:hover {
             /* Efek hover gelap sedikit */
-            background: #113c54; 
+            background: #124116; 
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(26, 82, 118, 0.3);
+            box-shadow: 0 5px 15px rgba(27, 94, 32, 0.30);
         }
     </style>
 
@@ -104,7 +104,7 @@
                 {{-- GANTI DENGAN URL LOGO SMK AL-MUHAJIRIN YANG SESUNGGUHNYA --}}
                
                 
-                <h4 class="font-weight-bold" style="color: var(--primary-color); margin-bottom: 1px;">SMK AL-MUHAJIRIN DEPOK</h4>
+                <h4 class="font-weight-bold" style="color: var(--primary-color); margin-bottom: 1px;">SMK MUHAMMADIYAH 1 JAKARTA</h4>
                 <p class="text-muted small mb-4"></p>
             </div>
 
@@ -179,7 +179,7 @@
             {{-- Footer Copyright (Diubah ke Al-Muhajirin) --}}
             <div class="text-center mt-4">
                 <p class="text-muted small" style="font-size: 0.7rem;">
-                    &copy; {{ date('Y') }} SMK AL-MUHAJIRIN DEPOK
+                    &copy; {{ date('Y') }} SMK MUHAMMADIYAH 1 JAKARTA
                 </p>
             </div>
         </div>
