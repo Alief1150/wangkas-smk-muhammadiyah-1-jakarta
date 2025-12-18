@@ -59,97 +59,147 @@ Jika Anda menggunakan XAMPP, PHP, dan MySQL sudah menjadi satu paket di dalam ap
 
 ## Langkah-langkah Instalasi
 
-1. Clone repository ini dengan memilih tipe protokol HTTPS atau SSH. Jika belum memiliki setup SSH, bisa menggunakan HTTPS.
+🎓 Sistem Pembayaran SPP
+SMK Muhammadiyah 1 Jakarta
 
-**HTTPS:**
+Aplikasi Sistem Informasi Pembayaran SPP berbasis web untuk
+SMK Muhammadiyah 1 Jakarta, dibuat menggunakan Laravel.
+
+✨ Showcase Fitur
+
+✅ Manajemen Data Pelajar
+
+✅ Kategori SPP: Reguler, Unggulan, Beasiswa
+
+✅ Transaksi Pembayaran + Bukti Upload
+
+✅ Dashboard Admin
+
+✅ UI modern & responsif
+
+✅ Homepage & Login Page custom sekolah
+
+🛠️ Teknologi
+
+Framework: Laravel 10
+
+Backend: PHP 8.2
+
+Database: MySQL / MariaDB
+
+Frontend: Blade + Bootstrap
+
+Auth: Laravel Auth
+
+📦 Instalasi (WINDOWS)
+1. Install Software Wajib
 
 ```bash
-$ git clone https://github.com/mrizkimaulidan/wangkas.git
+PHP ≥ 8.2
 ```
 
-**SSH:**
-
 ```bash
-$ git clone git@github.com:mrizkimaulidan/wangkas.git
-```
-
-2. Instal seluruh packages yang dibutuhkan.
-
-```bash
-$ npm install
+Composer
 ```
 
 ```bash
-$ composer install
+Git
 ```
 
-3. Siapkan database dan atur value pada file `.env` sesuai dengan konfigurasi Anda.
+```bash
+MySQL / XAMPP
+```
+
+Cek versi:
 
 ```bash
-DB_DATABASE=
-DB_USERNAME=
+php -v
+composer -V
+```
+
+2. Clone Repository
+
+```bash
+git clone https://github.com/Alief1150/wangkas-smk-muhammadiyah-1-jakarta.git
+cd wangkas-smk-muhammadiyah-1-jakarta
+```
+
+3. Install Dependencies
+```bash
+composer install
+```
+
+4. Konfigurasi Environment
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+```bash
+Edit .env:
+```
+
+```bash
+DB_DATABASE=uas-wangkas-tawadu
+DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-4. Ubah value `APP_NAME=` pada file `.env` menjadi nama aplikasi yang Anda inginkan.
+5. Buat Database
 
+Masuk ke MySQL:
 ```bash
-APP_NAME=
+CREATE DATABASE uas-wangkas-tawadu;
 ```
 
-5. Ubah value `APP_TIMEZONE=` pada file `.env` menjadi lokasi Timezone Anda.
-
+6. Migration & Seeder
 ```bash
-APP_TIMEZONE=
+php artisan migrate:fresh --seed
 ```
 
-6. Migrate seluruh migrasi dan seeding data palsu.
-
+7. Jalankan Aplikasi
 ```bash
-$ php artisan migrate:fresh --seed
+php artisan serve
 ```
 
-7. Jalankan local server Laravel.
 
+Akses di browser:
 ```bash
-$ php artisan serve
+http://127.0.0.1:8000
+```
+
+🐧 Instalasi (LINUX)
+1. Install Dependensi
+```bash
+sudo apt update
+sudo apt install php php-cli php-mbstring php-xml php-curl php-mysql unzip git composer mysql-server
+```
+
+2. Clone & Setup
+```bash
+git clone https://github.com/Alief1150/wangkas-smk-muhammadiyah-1-jakarta.git
+cd wangkas-smk-muhammadiyah-1-jakarta
+composer install
+cp .env.example .env
+php artisan key:generate
+```
+
+3. Database
+```bash
+CREATE DATABASE uas-wangkas-tawadu;
 ```
 
 ```bash
-INFO  Server running on [http://127.0.0.1:8000].
-
-Press Ctrl+C to stop the server
+php artisan migrate:fresh --seed
+php artisan serve
 ```
 
-8. Jalankan juga development server untuk NPM.
+👤 Akun Default
+Email    : admin@example.com
+Password : password
 
-```bash
-$ npm run dev
-```
+📄 Lisensi
 
-```bash
-> dev
-> vite
-
-
-  VITE v5.4.9  ready in 341 ms
-
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-  ➜  press h + enter to show help
-
-  LARAVEL v11.28.1  plugin v1.0.5
-
-  ➜  APP_URL: http://localhost
-
-```
-
-## User default aplikasi untuk login
-
-```bash
-Email   : admin@mail.com
-Pass    : secret
-```
+Project ini dibuat untuk keperluan UAS / Akademik.
 
 ## Dibuat dengan
 
