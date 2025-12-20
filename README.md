@@ -194,7 +194,7 @@ php artisan serve
 ```
 
 👤 Akun Default
-Email    : admin@example.com
+Email    : admin@mail.com
 Password : secret
 
 📄 Lisensi
