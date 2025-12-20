@@ -195,7 +195,7 @@ php artisan serve
 
 👤 Akun Default
 Email    : admin@example.com
-Password : password
+Password : secret
 
 📄 Lisensi
 
